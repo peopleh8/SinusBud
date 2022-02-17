@@ -1,0 +1,136 @@
+html {
+  width: 100%;
+  height: 100%;
+  &.lock-scroll {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+  }
+}
+
+body {
+  font-family: $fontName;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  font-style: $fontStyle;
+  color: $blackColor;
+  background: $whiteColor;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.container {
+  max-width: $containerTotalWidth;
+  margin: 0 auto;
+  padding: 0 $containerPaddings;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main {
+	flex: 1 0 auto;
+}
+
+.footer {
+	flex: 0 0 auto;
+}
+
+.btn {
+  width: 350px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $accentColor;
+  color: $whiteColor;
+  line-height: 150%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid $accentColor;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  transition: color .2s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $whiteColor;
+    transform-origin: right center;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+  @media (min-width: 1024px) {
+    &:hover {
+      color: $accentColor;
+      &::before {
+        transform: scaleX(1);
+        transform-origin: left center;
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    &:active {
+      color: $accentColor;
+      &::before {
+        transform: scaleX(1);
+        transform-origin: left center;
+      }
+    }
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 94px;
+  text-transform: uppercase;
+  &--dark {
+    color: #3E4042;
+  }
+  &--light {
+    color: $whiteColor;
+  }
+}
+
+.subtitle {
+  
+}
+
+.section-counter {
+  pointer-events: none;
+  user-select: none;
+  width: 145px;
+  height: 500px;
+  background: rgba(#E9EBEC, .8);
+  position: absolute;
+  z-index: -1;
+  font-weight: bold;
+  font-size: 214.748px;
+  line-height: 260px;
+  overflow: hidden;
+  span {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &--light {
+    color: $whiteColor;
+  }
+  &--dark {
+    color: #3C3F41;
+  }
+}
